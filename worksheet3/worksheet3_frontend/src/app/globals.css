@@ -1,26 +1,76 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 组件样式 */
+.CreateBook,
+.ShowBookDetails,
+.UpdateBookInfo,
+.ShowBookList {
+  @apply bg-slate-800 text-white min-h-screen;
+}
+
+/* 书籍列表样式 */
+.list {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-5 mb-12;
+}
+
+.card-container {
+  @apply w-full max-w-xs mx-auto border border-slate-700 rounded-lg overflow-hidden transition-all duration-300 hover:card-shadow;
+}
+
+.desc {
+  @apply h-32 p-3;
+}
+
+.desc h2 {
+  @apply text-base font-normal;
+}
+
+.desc h3, 
+.desc p {
+  @apply font-light;
+}
+
+.desc h3 {
+  @apply text-slate-400 text-sm py-2.5;
+}
+
+/* 折叠面板样式 */
+.collapse.show {
+  @apply visible;
 }
