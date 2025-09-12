@@ -1,33 +1,25 @@
-name: CI_action
+name: CI Workflow  # 工作流名称
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: 
+  push:            # 触发条件：当代码被推送到仓库时触发
+    branches:
+      - main       # 仅当推送到 main 分支时触发
+  pull_request:    # 触发条件：当有 PR 时触发
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
+  test:            # 定义一个名为 "test" 的任务
+    runs-on: ubuntu-latest  # 运行环境，使用 GitHub 提供的 Ubuntu 最新版本
     steps:
-      - name: Checkout repository
+      - name: Checkout Code   # 第一步：拉取代码
         uses: actions/checkout@v4
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js    # 第二步：设置 Node.js 环境
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
 
-      - name: Install dependencies
+      - name: Install Dependencies  # 第三步：安装项目依赖
         run: npm install
 
-      - name: Run the tests
+      - name: Run Tests  # 第四步：执行测试
         run: npm test
-
-      - name: Build
-        run: npm run build
