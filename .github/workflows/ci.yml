@@ -12,7 +12,11 @@ jobs:
 
     strategy:
       matrix:
+<<<<<<< HEAD
         node-version: [14.x]
+=======
+        node-version: [12.x]
+>>>>>>> fe6cb3951960d239f8079256b5e5217c165faaad
 
     steps:
       - name: Checkout repository
@@ -30,4 +34,8 @@ jobs:
         run: npm test
 
       - name: Build
+<<<<<<< HEAD
         run: npm run build
+=======
+        run: npm run build
+>>>>>>> fe6cb3951960d239f8079256b5e5217c165faaad
