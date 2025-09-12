@@ -1,0 +1,19 @@
+{
+  "name": "cise_repos",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000C\u0000I\u0000S\u0000E\u0000_\u0000R\u0000e\u0000p\u0000o\u0000s\u0000\r\u0000 \u0000",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lin-Mumu-1/CISE_Repos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lin-Mumu-1/CISE_Repos/issues"
+  },
+  "homepage": "https://github.com/Lin-Mumu-1/CISE_Repos#readme"
+}
