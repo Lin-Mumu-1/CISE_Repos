@@ -30,8 +30,4 @@ jobs:
         run: npm test
 
       - name: Build
-<<<<<<< HEAD
         run: npm run build
-=======
-        run: npm run build
->>>>>>> fe6cb3951960d239f8079256b5e5217c165faaad
