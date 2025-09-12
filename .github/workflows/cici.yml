@@ -1,18 +1,21 @@
 name: CI_action
 
+# 关键修改：仅在合并到 main 分支时触发
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+    types: [closed]  # 仅监听 PR 关闭事件
 
 jobs:
   build:
+    # 只有当 PR 被合并（而非关闭未合并）时才执行任务
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [14.x]  # 已更新为 14.x
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
