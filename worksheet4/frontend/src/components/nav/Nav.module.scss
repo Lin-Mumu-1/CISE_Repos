@@ -1,0 +1,90 @@
+.navbar {
+  display: flex;
+  position: relative;
+  top: 0;
+  flex-direction: row;
+  width: 100%;
+  background-color: darkblue;
+  align-items: center;
+  color: aliceblue;
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: top 0.5s ease;
+  height: fit-content;
+}
+
+/* 导航栏隐藏状态 */
+.navbar.hide {
+  top: -3em;
+}
+
+/* 基础导航项样式 */
+.navitem {
+  position: relative;
+  padding: 1em;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: default;
+  white-space: nowrap;
+}
+
+/* 可点击导航项 */
+.clickable {
+  @extend .navitem;
+  cursor: pointer;
+}
+
+.clickable:hover {
+  backdrop-filter: brightness(50%);
+  transition: backdrop-filter 0.3s ease;
+}
+
+/* 下拉菜单容器 */
+.dropdown_container {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: darkblue;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 150px; /* 确保下拉菜单有足够宽度 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影增强层次感 */
+  transition: visibility 0.3s ease;
+}
+
+/* 下拉菜单触发区域 */
+.dropdown {
+  position: relative;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+  backdrop-filter: brightness(50%);
+  transition: backdrop-filter 0.3s ease;
+}
+
+/* 鼠标悬停时显示下拉菜单 */
+.dropdown:hover .dropdown_container {
+  visibility: visible;
+}
+
+/* 靠右对齐的导航项 */
+.end {
+  margin-left: auto;
+}
+
+/* 下拉菜单项样式（如果需要） */
+.dropdown_item {
+  @extend .navitem;
+  padding: 0.8em 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown_item:hover {
+  backdrop-filter: brightness(70%);
+  transition: backdrop-filter 0.3s ease;
+}

@@ -1,0 +1,18 @@
+.user_container {
+  position: absolute;
+  width: 2em;
+  aspect-ratio: 1; /* 保持正方形比例 */
+  border-radius: 50%; /* 圆形外观 */
+  left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: brightness(50%);
+  transition: backdrop-filter 0.3s ease; /* 平滑过渡效果 */
+  cursor: pointer; /* 提示可交互 */
+}
+
+/* 可选：添加悬停效果增强交互体验 */
+.user_container:hover {
+  backdrop-filter: brightness(70%);
+}
